@@ -46,8 +46,8 @@ Find host ip for docker and replace mentioned value
 
 ### 6) Run application
 ```npm start```
-```npm run start:dev - for autoreload ```
+```npm run start:dev```- for autoreload 
 
 
 ### Helpful commands:
-```npx prisma studio - view data in database using prisma tool```
+```npx prisma studio``` - view data in database using prisma tool
