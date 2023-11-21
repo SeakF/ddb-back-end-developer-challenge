@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Character {
+  id                   String    @id @unique// does not have default value because of requirements for this coding challenge
+  name                 String    @unique
+  hitPoints            Int
+  temporaryHitPoints   Int?
+  maxAmountOfHitPoints Int?
+  classes              Class[]
+  stats                Stats?
+  items                Item[]
+  defenses             Defense[]
+}
+
+model Class {
+  id           String     @id @default(uuid())
+  name         String
+  hitDiceValue Int
+  classLevel   Int
+  characterId  String
+  character    Character? @relation(fields: [characterId], references: [id])
+}
+
+model Stats {
+  id           String    @id @default(uuid())
+  strength     Int
+  dexterity    Int
+  constitution Int
+  intelligence Int
+  wisdom       Int
+  charisma     Int
+  characterId  String    @unique
+  character    Character @relation(fields: [characterId], references: [id])
+}
+
+model Item {
+  id          String     @id @default(uuid())
+  name        String
+  modifier    Modifier?
+  characterId String
+  character   Character? @relation(fields: [characterId], references: [id])
+}
+
+model Modifier {
+  id             String @id @default(uuid())
+  affectedObject String
+  affectedValue  String
+  value          Int
+  itemId         String @unique
+  item           Item   @relation(fields: [itemId], references: [id])
+}
+
+model Defense {
+  id          String          @id @default(uuid())
+  type        DefenseType
+  defense     DefenseStrength
+  characterId String
+  character   Character?      @relation(fields: [characterId], references: [id])
+}
+
+enum DefenseType {
+  bludgeoning
+  piercing
+  slashing
+  fire
+  cold
+  acid
+  thunder
+  lightning
+  poison
+  radiant
+  necrotic
+  psychic
+  force
+}
+
+enum DefenseStrength {
+  immunity
+  resistance
+}
