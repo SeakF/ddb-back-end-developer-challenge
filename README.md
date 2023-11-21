@@ -2,7 +2,7 @@
 
 ## To properly run application with environment you need to have WSL and docker installed
 
-### Steps required to run application dockerized:
+### Steps required to run application dockerized
 
 ### 1) Build docker Image:
 ```docker build -t dnd-challenge:v1 .```
