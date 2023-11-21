@@ -1,6 +1,9 @@
 # dnd developer challenge
 
-## To properly run application with environment you need to have WSL and docker installed
+### To properly run application with environment you need to have WSL and docker installed
+
+
+
 
 ### Steps required to run application dockerized
 
@@ -24,7 +27,7 @@
 
 
 
-## If you want to run application not dockerized (for quicker development)
+### If you want to run application not dockerized (for quicker development)
 
 ### 1) Use version of node from .nvmrc
 
