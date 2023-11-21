@@ -31,7 +31,7 @@
 
 ### 3) Change DATABASE_URL in .env file to match your database host:
 ```DATABASE_URL="postgresql://admin:password@database_host:5432/db?schema=public"```
-```In order to do that you need to replace database_host value with ip of a docker container with running postgres```
+In order to do that you need to replace database_host value with ip of a docker container with running postgres
 Run 'ifconfig' for windows, 'ip addr show' for wsl
 Find host ip for docker and replace mentioned value
 
