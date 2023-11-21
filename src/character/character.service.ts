@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { DefenseType as PrismaDefenseType, DefenseStrength as PrismaDefenseStrength } from '@prisma/client';
-import { CharacterWithTemporaryHitPointsAndMaxHitPoints, Item, Defense, Character, DefenseType, DefenseStrength } from './character.interface';
+import { CharacterWithTemporaryHitPointsAndMaxHitPoints, Item, Defense, Character } from './character.interface';
 
 type SupportedCharacterProps = Omit<CharacterWithTemporaryHitPointsAndMaxHitPoints, 'name' | 'level' | 'maxAmountOfHitPoints' | 'classes' | 'stats' | 'items' | 'defenses'>;
 type IncludeNestedValuesOfCharacter = keyof Omit<CharacterWithTemporaryHitPointsAndMaxHitPoints, 'name' | 'level' | 'maxAmountOfHitPoints' | 'temporaryHitPoints' | 'hitPoints'>;
